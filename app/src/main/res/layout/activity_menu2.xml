@@ -16,11 +16,138 @@
 
     <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
             app:headerLayout="@layout/nav_header_menu2"
-            app:menu="@menu/activity_menu2_drawer"/>
+            app:menu="@menu/activity_menu2_drawer">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:background="#FFFFFF" android:weightSum="9"
+        >
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:weightSum="10" android:layout_weight="0.9">
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" app:srcCompat="@drawable/user"
+                        android:id="@+id/imageView" android:layout_weight="6" android:layout_gravity="center_vertical"
+                        android:adjustViewBounds="false" android:scaleX="0.8" android:scaleY="0.8"
+                />
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="4" android:weightSum="15"
+                        android:layout_gravity="center_vertical">
+                    <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:layout_weight="7.5"/>
+                    <TextView
+                            android:text="John Doe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:id="@+id/aUserName" android:layout_weight="1"
+                            app:autoSizeTextType="none" android:textSize="18sp" android:gravity="bottom"
+                            android:layout_gravity="center_vertical" android:textColor="#565656"/>
+                    <TextView
+                            android:text="Edit profile   "
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:id="@+id/aProfileLink"
+                            android:layout_weight="1" app:autoSizeTextType="none"
+                            android:layout_gravity="center_vertical" android:ellipsize="none" android:textSize="14sp"
+                            android:drawableRight="@drawable/right_edit"
+                            android:gravity="center_horizontal|center_vertical"/>
+                </LinearLayout>
+            </LinearLayout>
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1.1"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1" android:paddingLeft="20dp"
+                    android:weightSum="5" android:showDividers="end"
+                    android:divider="?attr/dividerHorizontal" android:paddingRight="20dp">
+                <TextView
+                        android:text="Card Number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/aCardNumSide"
+                        android:textColor="#565656" android:textStyle="bold" app:autoSizeTextType="none"
+                        android:layout_weight="1" android:textSize="14sp" android:singleLine="false"
+                        android:gravity="bottom"/>
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/aCardNumHolder"
+                        app:autoSizeTextType="none" android:layout_weight="1" android:textSize="14sp"
+                        android:gravity="center_vertical" android:paddingTop="5dp" android:textColor="#BEBEBE"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1" android:paddingLeft="20dp"
+                    android:weightSum="5" android:divider="?attr/dividerHorizontal"
+                    android:showDividers="end" android:paddingRight="20dp">
+                <TextView
+                        android:text="Registration Number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/aRegNumber"
+                        android:textColor="#565656" android:textStyle="bold" app:autoSizeTextType="none"
+                        android:layout_weight="1" android:textSize="14sp" android:gravity="bottom"/>
+                <TextView
+                        android:text="14622654124"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/aRegNumberHolder"
+                        app:autoSizeTextType="none" android:layout_weight="1" android:gravity="center_vertical"
+                        android:paddingTop="5dp" android:textColor="#BEBEBE"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1" android:paddingLeft="20dp"
+                    android:weightSum="5" android:showDividers="end"
+                    android:divider="?attr/dividerHorizontal" android:paddingRight="20dp">
+                <TextView
+                        android:text="Call Support"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/aSupport"
+                        android:textColor="#565656" android:textStyle="bold" app:autoSizeTextType="none"
+                        android:layout_weight="1" android:gravity="bottom"/>
+                <TextView
+                        android:text="+95 285 285 285"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/aSupportHolder"
+                        app:autoSizeTextType="none" android:layout_weight="1" android:gravity="center_vertical"
+                        android:paddingTop="5dp" android:textColor="#BEBEBE"/>
+            </LinearLayout>
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1.1"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/clawlogon"
+                    android:id="@+id/aQrImage" android:layout_weight="0.8" android:adjustViewBounds="false"/>
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1.1"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1.07">
+                <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="1.9"/>
+                <Button
+                        android:text="Log out"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/aLogout" android:layout_weight="0.4"
+                        android:background="@drawable/button" android:textColor="#FFFFFF" android:textAllCaps="false"/>
+                <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:layout_weight="1.9"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

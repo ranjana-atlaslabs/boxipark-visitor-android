@@ -5,95 +5,52 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MenuActivity2">
+        tools:context=".MainMenu.MenuActivity">
 
     <android.support.design.widget.AppBarLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:theme="@style/AppTheme.AppBarOverlay" android:background="#FFFFFF">
+            android:theme="@style/AppTheme.AppBarOverlay" android:background="#F9F9F9" app:elevation="0dp">
 
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:weightSum="3">
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"/>
             <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="#FFFFFF"
-                    app:popupTheme="@style/AppTheme.PopupOverlay">
-
-                <ImageView
-                        android:id="@+id/toolbar_logo"
+                    android:layout_height="match_parent"
+                    android:background="#F9F9F9"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" android:layout_weight="1"
+            >
+                <LinearLayout
+                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_gravity="right"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/logo" android:scaleX="1"
-                        android:scaleY="1" android:scaleType="fitCenter"
-                        android:scrollbarAlwaysDrawVerticalTrack="false"
-                        android:scrollbarAlwaysDrawHorizontalTrack="false" android:cropToPadding="false"
-                        android:paddingRight="70dp"/>
+                        android:layout_height="match_parent" android:layout_weight="1" android:weightSum="2"
+                        android:gravity="right" android:foregroundGravity="right">
+                    <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:layout_weight="0.3"/>
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:srcCompat="@drawable/search_new" android:id="@+id/aSearchButton"
+                            android:layout_weight="1.7" android:scaleX="0.6" android:scaleY="0.6"
+                            android:paddingTop="2dp"/>
+                </LinearLayout>
 
             </android.support.v7.widget.Toolbar>
-            <LinearLayout
-                    android:orientation="horizontal"
+            <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_weight="2">
-                <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" android:layout_weight="1" android:paddingLeft="20dp"
-                        android:weightSum="7">
-                    <Space
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" android:layout_weight="1"/>
-                    <TextView
-                            android:text="Cloudy"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" android:id="@+id/textView5"
-                            android:textColor="#090000" android:textStyle="bold"
-                            app:autoSizeTextType="uniform"
-                            android:layout_weight="1"/>
-                    <TextView
-                            android:text="20°"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" android:id="@+id/textView4"
-                            android:textColor="#090000" android:textStyle="bold"
-                            app:autoSizeTextType="uniform" android:layout_weight="1"/>
-                    <TextView
-                            android:text="Lake Nona, Orlando"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" android:id="@+id/textView3"
-                            android:textColor="#0E0000"
-                            app:autoSizeTextType="uniform" android:paddingBottom="5dp" android:layout_weight="0.2"
-                    />
-                    <TextView
-                            android:text="Grab your free cocktail here"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" android:id="@+id/textView12"
-                            android:layout_weight="0.4" android:baselineAligned="false"
-                            app:autoSizeTextType="uniform" android:singleLine="false"/>
-                    <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/button"
-                            android:text="Offers" android:textColor="#FCFBFB" android:textAllCaps="false"
-                            android:minHeight="0dp" android:minWidth="0dp"
-                            android:textSize="12sp" android:id="@+id/aMoreInfo" android:paddingLeft="30dp"
-                            android:paddingRight="30dp"
-                            android:layout_weight="1"/>
-                    <Space
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" android:layout_weight="1"/>
-                </LinearLayout>
-                <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" app:srcCompat="@drawable/handsample"
-                        android:id="@+id/imageView7" android:layout_weight="1"
-                        android:layout_gravity="right" android:scaleX="1" android:scaleY="1"
-                        android:scaleType="fitStart" android:adjustViewBounds="true"/>
-            </LinearLayout>
+                    android:layout_height="50dp" app:srcCompat="@drawable/logo_new" android:id="@+id/imageView6"
+                    android:layout_weight="1" android:adjustViewBounds="false" android:layout_marginTop="-50dp"
+                    android:scaleX="1.1" android:scaleY="1.1"/>
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
         </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>

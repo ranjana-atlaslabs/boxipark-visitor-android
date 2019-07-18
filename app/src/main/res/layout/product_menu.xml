@@ -5,57 +5,56 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ProductMenu" android:background="#FFFFFF">
+        tools:context=".Activity.ProductMenu" android:background="#FFFFFF">
+
 
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" android:weightSum="10" android:paddingLeft="10dp"
+            android:paddingRight="10dp" android:paddingTop="5dp">
         <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                          android:orientation="vertical" android:weightSum="6">
+                android:layout_height="match_parent" android:layout_weight="0.7">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:orientation="vertical" android:weightSum="9" android:id="@+id/aScrollMenuProduct">
                 <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" app:srcCompat="@drawable/barnona"
-                        android:id="@+id/imageView2" android:scaleX="1" android:scaleY="1"
-                        android:adjustViewBounds="true" android:layout_weight="1"
-                />
-                <TextView
-                        android:text="BEER ON TAP"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/textView8"
-                        android:gravity="center_horizontal" android:textColor="@color/colorPrimaryDark"
-                        android:layout_weight="1" android:textSize="18sp" android:textStyle="bold"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp" app:srcCompat="@drawable/back_button"
+                        android:id="@+id/aMenuBackB"
+                        tools:layout_editor_absoluteX="16dp" android:adjustViewBounds="true" android:scaleX="0.6"
+                        android:scaleY="0.6" android:scaleType="fitStart" android:layout_marginLeft="-10dp"
+                        android:layout_marginTop="5dp"/>
                 <Space
-                        android:layout_weight="1" android:layout_width="100dp" android:layout_height="10dp"/>
-                <TextView
-                        android:text="Enjoy Hyper-Local Craft beer, Brewed Just Across The Street At ttttttt Park Pizza and Brewing Company."
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/textView9"
-                        android:gravity="center_horizontal" android:textSize="16dp" android:includeFontPadding="true"
-                        android:layout_weight="1" android:paddingLeft="60dp" android:paddingRight="60dp"/>
+                        android:layout_height="20dp"/>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:weightSum="3" android:layout_weight="2"
+                        android:addStatesFromChildren="false" android:id="@+id/aMenuImage">
+                    <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:layout_weight="1.4"/>
+                    <android.support.v7.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:layout_weight="0.2"
+                            app:cardBackgroundColor="#C3623D" app:cardCornerRadius="10dp"
+                            android:id="@+id/aRestCard">
+                        <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" app:srcCompat="@drawable/restbarnona"
+                                android:id="@+id/aRestImage" android:scaleX="0.8" android:scaleY="0.8"
+                                android:adjustViewBounds="false" android:layout_weight="1"
+                        />
+                    </android.support.v7.widget.CardView>
+                    <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:layout_weight="1.4"/>
+                </LinearLayout>
                 <Space
-                        android:layout_weight="1" android:layout_width="match_parent" android:layout_height="10dp"/>
-                <ListView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/aList1" android:paddingLeft="2dp"
-                        android:layout_weight="1">
-                </ListView>
-                <Space
-                        android:layout_weight="1" android:layout_width="match_parent" android:layout_height="10dp"/>
-                <TextView
-                        android:text="KEGGED COCKTAILS"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/textView10"
-                        android:gravity="center_horizontal" android:textColor="@color/colorPrimaryDark"
-                        android:layout_weight="1" android:textSize="18sp" android:textStyle="bold"/>
-                <Space
-                        android:layout_weight="1" android:layout_width="match_parent" android:layout_height="10dp"/>
-                <ListView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/aList2" android:layout_weight="1"/>
+                        android:layout_width="match_parent" android:layout_height="20dp"/>
+
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

@@ -8,47 +8,115 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar_menu2"
-        tools:context=".MenuActivity2">
+        tools:context=".MainMenu.MenuActivity">
 
-    <LinearLayout
-            android:orientation="vertical"
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:weightSum="1" android:background="@android:color/white">
-
-        <FrameLayout
-                android:layout_width="match_parent"
-                     android:layout_height="wrap_content" >
-
-            <ImageView
-                    android:id="@+id/imgPlaylistItemBg"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:maxHeight="0dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/map"/>
-
+            android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:orientation="vertical" android:weightSum="3">
             <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" >
-
-
-                <Button
-                        android:text="MAP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/aMapB"
-                        android:layout_gravity="center_horizontal"/>
+                    android:layout_height="match_parent" android:layout_weight="1" android:id="@+id/aMainLayout">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_weight="1" android:paddingLeft="20dp"
+                        android:weightSum="5" android:paddingBottom="10dp" android:paddingTop="15dp">
+                    <TextView
+                            android:text="Sunny"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:id="@+id/aWeatherHead"
+                            android:textColor="#090000" android:textStyle="bold"
+                            app:autoSizeTextType="none"
+                            android:layout_weight="1" android:textSize="18sp" android:gravity="bottom"
+                    />
+                    <TextView
+                            android:text="33°"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:id="@+id/aTemperature"
+                            android:textColor="#090000" android:textStyle="bold"
+                            app:autoSizeTextType="none" android:layout_weight="1" android:textSize="50sp"
+                            android:gravity="top"/>
+                    <TextView
+                            android:text="Lake Nona, Orlando"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:id="@+id/aLocation"
+                            android:textColor="#0E0000"
+                            app:autoSizeTextType="none" android:layout_weight="1"
+                            android:textSize="18sp" android:gravity="top" android:singleLine="true"/>
+                    <TextView
+                            android:text="Grab your free cocktail here."
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:id="@+id/aOffer"
+                            android:layout_weight="1" android:baselineAligned="false"
+                            app:autoSizeTextType="none" android:textSize="10sp"
+                            android:paddingBottom="10dp" android:singleLine="true" android:gravity="center_vertical"
+                            android:paddingTop="5dp"/>
+                    <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/offer_button"
+                            android:text="Offers" android:textColor="#FCFBFB" android:textAllCaps="false"
+                            android:minHeight="0dp" android:minWidth="0dp"
+                            android:textSize="12sp" android:id="@+id/aMoreInfo"
+                            android:layout_weight="0.6" android:paddingTop="5dp" android:paddingBottom="5dp"
+                            android:paddingLeft="20dp" android:paddingRight="20dp"/>
+                </LinearLayout>
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" app:srcCompat="@drawable/handsample"
+                        android:id="@+id/imageView7" android:layout_weight="1"
+                        android:layout_gravity="right" android:scaleX="1" android:scaleY="1"
+                        android:scaleType="fitEnd"/>
             </LinearLayout>
+            <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp" android:layout_weight="1" android:id="@+id/aMapFrame">
 
-        </FrameLayout>
-        <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" android:scaleY="1" android:id="@+id/aScroll">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
-                          android:orientation="vertical" android:weightSum="3" android:scaleX="1.2"
-                          android:scaleY="1.1" android:id="@+id/aVScroll"/>
-        </ScrollView>
-    </LinearLayout>
+                <ImageView
+                        android:id="@+id/imgPlaylistItemBg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:maxHeight="0dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/home_map" app:srcCompat="@drawable/home_map"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical" android:layout_gravity="center_vertical"
+                        android:weightSum="3">
+
+
+                    <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:layout_weight="1.2"/>
+                    <Button
+                            android:text="MAP"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" android:id="@+id/aMapB"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:background="@drawable/map_button"
+                            android:minHeight="0dp" android:minWidth="0dp"
+                            android:layout_weight="0.6"/>
+                    <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:layout_weight="1.2"/>
+                </LinearLayout>
+
+            </FrameLayout>
+            <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:scaleY="1" android:id="@+id/aScroll"
+                    android:layout_weight="1">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+                              android:orientation="vertical" android:weightSum="3" android:scaleX="1.2"
+                              android:scaleY="1.1" android:id="@+id/aVScroll"/>
+            </ScrollView>
+        </LinearLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

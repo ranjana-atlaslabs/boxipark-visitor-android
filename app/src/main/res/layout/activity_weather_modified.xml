@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activity.WeatherModified">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:weightSum="9" android:background="#9BD0EF"
+            android:id="@+id/aWeatherMainLayout"
+            android:showDividers="end">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:weightSum="2" android:layout_weight="0.9">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1" android:weightSum="3">
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" app:srcCompat="@drawable/back_button"
+                        android:id="@+id/aMBack" android:layout_weight="1.1" android:scaleType="fitStart"
+                        android:adjustViewBounds="true" android:paddingTop="10dp" android:paddingLeft="20dp"
+                        android:tint="#FFFFFF" android:layout_marginLeft="-15dp" android:scaleX="1.1"
+                        android:scaleY="1.1"/>
+                <TextView
+                        android:text="Sunny"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/aMWeatherType" android:layout_weight="1.1"
+                        android:paddingLeft="25dp" android:textColor="#F8F7F7" android:paddingTop="15dp"/>
+                <TextView
+                        android:text="32°"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" android:id="@+id/aMWeatherTemp" android:layout_weight="0.8"
+                        android:textSize="30sp" android:paddingLeft="25dp" android:textColor="#FAFAFA"
+                />
+            </LinearLayout>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/cloudsu"
+                    android:id="@+id/imageView10" android:layout_weight="1" android:scaleType="fitEnd"
+                    android:tint="#B8DCF2" android:scaleX="1"/>
+        </LinearLayout>
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" app:srcCompat="@drawable/icecreamw" android:id="@+id/imageView12"
+                android:layout_weight="0.85" android:scaleX="1.2" android:scaleY="1.2"/>
+        <TextView
+                android:text='Get a free ice cream from "Before it melts" between 2.00 p.m. to 4.00 p.m. by providing your card number.'
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:id="@+id/aMWeatherDescription" android:layout_weight="1"
+                android:textSize="16sp" android:gravity="center_horizontal" android:paddingLeft="20dp"
+                android:paddingRight="20dp" android:textColor="#FAFAFA"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1.042" android:background="#6494B1"
+                android:weightSum="3"
+                android:divider="?attr/dividerVertical" android:showDividers="end|none" android:paddingBottom="1dp">
+            <TextView
+                    android:text="Tuesday"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/aTue" android:layout_weight="0.8"
+                    android:gravity="center_vertical" android:paddingLeft="25dp" android:background="#87C8EE"
+                    android:textColor="#FAFAFA"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/sunny" android:id="@+id/imageView13"
+                    android:layout_weight="1.2" android:scaleType="fitEnd" android:background="#87C8EE"
+                    tools:ignore="DuplicateIds"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/icecreamw"
+                    android:id="@+id/imageView15" android:layout_weight="1" android:background="#87C8EE"
+                    tools:ignore="DuplicateIds"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1.042" android:background="#6494B1"
+                android:weightSum="3" android:showDividers="none"
+                android:divider="@android:drawable/divider_horizontal_textfield" android:paddingBottom="1dp">
+            <TextView
+                    android:text="Wednesday"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/aWed" android:layout_weight="0.8"
+                    android:gravity="center_vertical" android:paddingLeft="25dp" android:background="#87C8EE"
+                    android:textColor="#FAFAFA"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/cloud" android:id="@+id/imageView13"
+                    android:layout_weight="1.2" android:scaleType="fitEnd" android:background="#87C8EE"
+                    tools:ignore="DuplicateIds"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/beer"
+                    android:id="@+id/imageView15" android:layout_weight="1" android:background="#87C8EE"
+                    tools:ignore="DuplicateIds"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1.042" android:background="#6494B1"
+                android:weightSum="3" android:showDividers="none"
+                android:divider="@android:drawable/divider_horizontal_textfield" android:paddingBottom="1dp">
+            <TextView
+                    android:text="Thursday"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/aThu" android:layout_weight="0.8"
+                    android:gravity="center_vertical" android:paddingLeft="25dp" android:background="#87C8EE"
+                    android:textColor="#FAFAFA"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/imageView13"
+                    android:layout_weight="1.2" android:scaleType="fitEnd" android:background="#87C8EE"
+                    app:srcCompat="@drawable/rain" tools:ignore="DuplicateIds"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/tacoi"
+                    android:id="@+id/imageView15" android:layout_weight="1" android:background="#87C8EE"
+                    tools:ignore="DuplicateIds"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1.042" android:background="#6494B1"
+                android:weightSum="3" android:showDividers="none"
+                android:divider="@android:drawable/divider_horizontal_textfield" android:paddingBottom="1dp">
+            <TextView
+                    android:text="Friday"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/aFri" android:layout_weight="0.8"
+                    android:gravity="center_vertical" android:paddingLeft="25dp" android:background="#87C8EE"
+                    android:textColor="#FAFAFA"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/thunder" android:id="@+id/imageView13"
+                    android:layout_weight="1.2" android:scaleType="fitEnd" android:background="#87C8EE"
+                    tools:ignore="DuplicateIds"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/cocktail"
+                    android:id="@+id/imageView15" android:layout_weight="1" android:background="#87C8EE"
+                    tools:ignore="DuplicateIds"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1.042" android:background="#6494B1"
+                android:weightSum="3" android:showDividers="none"
+                android:divider="@android:drawable/divider_horizontal_textfield" android:paddingBottom="1dp">
+            <TextView
+                    android:text="Saturday"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/aSat" android:layout_weight="0.8"
+                    android:gravity="center_vertical" android:paddingLeft="25dp" android:background="#87C8EE"
+                    android:textColor="#FAFAFA"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/rain" android:id="@+id/imageView13"
+                    android:layout_weight="1.2" android:scaleType="fitEnd" android:background="#87C8EE"
+                    tools:ignore="DuplicateIds"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/beer"
+                    android:id="@+id/imageView15" android:layout_weight="1" android:background="#87C8EE"
+                    tools:ignore="DuplicateIds"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1.042" android:background="#6494B1"
+                android:weightSum="3" android:showDividers="none"
+                android:divider="@android:drawable/divider_horizontal_textfield" android:paddingBottom="1dp">
+            <TextView
+                    android:text="Sunday"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/aSun" android:layout_weight="0.8"
+                    android:gravity="center_vertical" android:paddingLeft="25dp" android:background="#87C8EE"
+                    android:textColor="#FAFAFA"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/sunny" android:id="@+id/imageView13"
+                    android:layout_weight="1.2" android:scaleType="fitEnd" android:background="#87C8EE"
+                    tools:ignore="DuplicateIds"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/icecreamw"
+                    android:id="@+id/imageView15" android:layout_weight="1" android:background="#87C8EE"
+                    tools:ignore="DuplicateIds"/>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

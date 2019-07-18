@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".GetStarted.GetStarted">
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView5" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/backgrn" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0"/>
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:weightSum="5.6">
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_weight="1"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_weight="1" android:weightSum="3"
+                android:paddingBottom="40dp">
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1.1"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/logo" android:id="@+id/aLogoGetStart"
+                    android:layout_weight="0.8" android:scaleType="fitCenter"
+                    android:scaleX="1" android:scaleY="1" android:adjustViewBounds="false"/>
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1.1"/>
+        </LinearLayout>
+        <TextView
+                android:text="Cloudy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/aTopTempStart" android:layout_weight="0.3"
+                app:autoSizeTextType="none" android:autoText="false" android:textColor="#F9FAFC"
+                android:freezesText="false" android:textIsSelectable="false"
+                android:gravity="bottom|center_horizontal" android:paddingLeft="20dp"
+                android:paddingRight="20dp" android:includeFontPadding="false" android:lineSpacingExtra="0sp"/>
+        <TextView
+                android:text="33°"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/aTempsStart" android:layout_weight="0"
+
+                android:textColor="#FDFDFD"
+                android:gravity="center_horizontal|top" android:textSize="80sp"
+
+                android:includeFontPadding="false" android:paddingLeft="30dp" android:paddingTop="10dp"/>
+
+        <Space
+                android:layout_weight="2.5" android:layout_width="1dp" android:layout_height="30dp"/>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_weight="0.2" android:weightSum="3">
+            <Space
+                    android:layout_weight="1" android:layout_width="100dp" android:layout_height="30dp"/>
+            <Button
+                    android:id="@+id/aLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/button"
+                    android:text="Get Started" android:layout_weight="1" android:textSize="14sp"
+                    android:textAllCaps="false" android:minHeight="0dp"/>
+            <Space
+                    android:layout_weight="1" android:layout_width="100dp" android:layout_height="30dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

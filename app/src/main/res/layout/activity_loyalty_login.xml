@@ -5,28 +5,44 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LoyaltyLogin" android:background="@drawable/background">
+        tools:context=".Login.LoyaltyLogin" android:id="@+id/aLoginParent">
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/aLoginBack"
+            android:scaleType="centerCrop"/>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:weightSum="7" android:background="@color/colorTransparent"
+            android:layout_height="match_parent" android:weightSum="11" android:background="@color/colorTransparent"
     >
         <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="1"/>
-        <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" app:srcCompat="@drawable/logo" android:id="@+id/imageView6"
-                android:layout_weight="0.1" android:scaleType="center" android:adjustViewBounds="false"
-                android:scaleX="0.5" android:scaleY="0.5"/>
+                android:layout_height="match_parent" android:layout_weight="0.94"/>
 
-        <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.5"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.2" android:weightSum="3">
+                android:layout_height="match_parent" android:layout_weight="0.9" android:weightSum="3"
+                android:paddingBottom="40dp">
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1.1"/>
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" app:srcCompat="@drawable/logo" android:id="@+id/aLogoGetStart"
+                    android:layout_weight="0.8" android:scaleType="fitCenter"
+                    android:scaleX="1" android:scaleY="1" android:adjustViewBounds="false"/>
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1.1"/>
+        </LinearLayout>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1.06"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1.045" android:weightSum="3">
             <Space
                     android:layout_width="100dp"
                     android:layout_height="match_parent" android:layout_weight="1"/>
@@ -37,19 +53,20 @@
                     android:background="@drawable/tounded_text"
                     android:ems="10"
                     android:id="@+id/aUserName" android:layout_weight="1"
-                    android:hint="Username or Email" android:textColorHint="#FFFFFF" android:paddingLeft="20dp"
-                    android:textSize="14sp" android:paddingTop="5dp" android:paddingBottom="5dp"/>
+                    android:hint="Username or Email" android:textColorHint="#8B8380" android:paddingLeft="20dp"
+                    android:textSize="14sp" android:paddingTop="5dp" android:paddingBottom="5dp"
+                    android:textColor="#FFFFFF"/>
             <Space
                     android:layout_width="100dp"
                     android:layout_height="match_parent" android:layout_weight="1"/>
         </LinearLayout>
         <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.2"/>
+                android:layout_height="match_parent" android:layout_weight="1.085"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.2" android:weightSum="3">
+                android:layout_height="match_parent" android:layout_weight="1.045" android:weightSum="3">
             <Space
                     android:layout_width="100dp"
                     android:layout_height="match_parent" android:layout_weight="1"/>
@@ -59,57 +76,59 @@
                     android:inputType="textPersonName|text|textPassword|textEmailAddress"
                     android:background="@drawable/tounded_text"
                     android:ems="10"
-                    android:id="@+id/editText2" android:layout_weight="1" android:hint="Password"
-                    android:textColorHint="#FDFAFA" android:paddingLeft="20dp" android:textSize="14sp"
-                    android:paddingTop="5dp" android:paddingBottom="5dp"/>
+                    android:id="@+id/aPassword" android:layout_weight="1" android:hint="Password"
+                    android:textColorHint="#8B8380" android:paddingLeft="20dp" android:textSize="14sp"
+                    android:paddingTop="5dp" android:paddingBottom="5dp" android:textColor="#FFFFFF"/>
             <Space
                     android:layout_width="100dp"
                     android:layout_height="match_parent" android:layout_weight="1"/>
         </LinearLayout>
         <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.5"/>
+                android:layout_height="match_parent" android:layout_weight="1.06"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.2" android:weightSum="3"
+                android:layout_height="match_parent" android:layout_weight="1.045" android:weightSum="3"
                 android:minHeight="0dp" android:minWidth="0dp">
             <Space
                     android:layout_weight="1" android:layout_width="100dp" android:layout_height="match_parent"/>
             <Button
-                    android:id="@+id/aSignUp2"
+                    android:id="@+id/aLogin"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="#ffffff"
                     android:background="@drawable/button"
-                    android:text="LOGIN" android:layout_weight="1" android:textSize="14sp" android:minHeight="0dp"
-                    android:minWidth="0dp"/>
+                    android:text="Login" android:layout_weight="1" android:textSize="14sp" android:minHeight="0dp"
+                    android:minWidth="0dp" android:textAllCaps="false"/>
             <Space
                     android:layout_weight="1" android:layout_width="100dp" android:layout_height="match_parent"/>
         </LinearLayout>
         <TextView
                 android:text="Forgot your password?"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.1"
-                android:gravity="center_horizontal" android:paddingTop="6dp" android:textColor="#FFFFFF"/>
+                android:layout_height="match_parent" android:layout_weight="1"
+                android:gravity="center_horizontal" android:paddingTop="10dp" android:textColor="#FFFFFF"
+                app:autoSizeTextType="none" android:id="@+id/aforgotPass"/>
         <Space
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="3.9"/>
+                android:layout_height="match_parent" android:layout_weight="0.78"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:layout_weight="0.1">
+                android:layout_height="match_parent" android:layout_weight="1.04">
             <TextView
                     android:text="Don't have an account?"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent" android:id="@+id/textView15" android:layout_weight="1"
-                    android:gravity="right|center_horizontal" android:textColor="#F7FFFFFF"/>
+                    android:layout_height="match_parent" android:id="@+id/aSignupText" android:layout_weight="1"
+                    android:gravity="right|center_horizontal" android:textColor="#F7FFFFFF"
+                    app:autoSizeTextType="none"/>
             <TextView
                     android:text="Sign up"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent" android:id="@+id/aSignUp1" android:layout_weight="1"
                     android:textColor="#FFFDFD" android:gravity="left" android:textStyle="bold"
-                    android:paddingLeft="3dp"/>
+                    android:paddingLeft="3dp" app:autoSizeTextType="none"/>
         </LinearLayout>
 
     </LinearLayout>
