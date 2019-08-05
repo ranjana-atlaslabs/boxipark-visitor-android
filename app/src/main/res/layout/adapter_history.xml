@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:weightSum="2" android:gravity="start"
+            android:paddingLeft="20dp" android:paddingRight="20dp">
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" android:layout_weight="1"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1" android:weightSum="2">
+            <TextView
+                    android:text="Barnona"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/aStore" android:layout_weight="0.75"
+                    android:textSize="25sp" android:textColor="#111111" android:gravity="center_vertical"/>
+            <TextView
+                    android:text="+50 Poiints"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/aPoints" android:layout_weight="1.25"
+                    android:textSize="25sp" android:gravity="right"/>
+        </LinearLayout>
+        <TextView
+                android:text="id : 123456789"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="1" android:id="@+id/aTId"
+                android:paddingTop="10dp"/>
+        <TextView
+                android:text="2018-10-10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/aTDate" android:layout_weight="1"
+                android:paddingTop="3dp"/>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" android:layout_weight="1"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

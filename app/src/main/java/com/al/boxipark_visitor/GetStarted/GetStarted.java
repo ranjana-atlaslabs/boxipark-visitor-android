@@ -16,6 +16,7 @@ import com.al.boxipark_visitor.Login.LoginModels.TokenModelResponse.TokenRespons
 import com.al.boxipark_visitor.Login.LoyaltyLogin;
 import com.al.boxipark_visitor.MainMenu.MenuActivity;
 import com.al.boxipark_visitor.Other.FontsSet;
+import com.al.boxipark_visitor.Other.TokenGenerator;
 import com.al.boxipark_visitor.R;
 import com.al.boxipark_visitor.Other.ScreenSize;
 import android.content.Intent;
@@ -34,37 +35,29 @@ import retrofit2.Retrofit;
 public class GetStarted extends AppCompatActivity {
     TokenModelRequest data=new TokenModelRequest();
     RequestTokens requestTokensApi;
+
+    TextView jTempGet;
+    TextView jTopTempStart;
+    Button getStarted;
+Context context;
+    public static FontsSet f=new FontsSet();
+    public static ScreenSize s=new ScreenSize();
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_get_started);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        FontsSet f=new FontsSet();
-
-        TextView jTempGet= findViewById(R.id.aTempsStart);
-        TextView jTopTempStart= findViewById(R.id.aTopTempStart);
-        Button getStarted= findViewById(R.id.aLogin);
-
-        getStarted.setTypeface(f.Book(this));
-        jTopTempStart.setTypeface(f.Book(this));
-        jTempGet.setTypeface(f.Book(this));
-        ScreenSize s=new ScreenSize();
-        Float size=s.size(this);
-
-        getStarted.setTextSize((float) (size*0.75));
-        jTempGet.setTextSize(size *4);
-        jTopTempStart.setTextSize((float) (size*0.8));
-
-
-
-
+        casting();
+        style();
+        context=this;
+        runBack();
         getStarted.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
-
                       if(checkStoredData()==1)
                       {
                        runAPI();
@@ -81,7 +74,26 @@ public class GetStarted extends AppCompatActivity {
 
 
     }
-    public void runAPI() {
+    public void style()
+    {
+        getStarted.setTypeface(f.Book(this));
+        jTopTempStart.setTypeface(f.Book(this));
+        jTempGet.setTypeface(f.Book(this));
+
+        Float size=s.size(this);
+
+        getStarted.setTextSize((float) (size*0.75));
+        jTempGet.setTextSize(size *4);
+        jTopTempStart.setTextSize((float) (size*0.8));
+    }
+    public void casting()
+    {
+        jTempGet= findViewById(R.id.aTempsStart);
+        jTopTempStart= findViewById(R.id.aTopTempStart);
+        getStarted= findViewById(R.id.aLogin);
+    }
+    public void runAPI()
+    {
         try {
             API(createProgressDialog(this));
         } catch (JSONException e) {
@@ -95,7 +107,7 @@ public class GetStarted extends AppCompatActivity {
         String username = prefs.getString("username", "no data");
         String password = prefs.getString("password", "");
 
-        if(username.equals("no data"))
+        if(username.equals("no data")||username.equals(""))
         {
             return 0;
         }
@@ -122,7 +134,8 @@ public class GetStarted extends AppCompatActivity {
         // dialog.setMessage(Message);
         return dialog;
     }
-    public void API(final ProgressDialog progressDialog) throws JSONException {
+    public void API(final ProgressDialog progressDialog) throws JSONException
+    {
 
 
         data.grant_type = "password";
@@ -147,14 +160,14 @@ public class GetStarted extends AppCompatActivity {
                     public void onSuccess(TokenResponseModel tokenResponseModel) {
                         if(!tokenResponseModel.result.equals("failed"))
                         {
-                            Toast.makeText(getApplicationContext(),tokenResponseModel.access_token,Toast.LENGTH_LONG).show();
+                          //  Toast.makeText(getApplicationContext(),tokenResponseModel.access_token,Toast.LENGTH_LONG).show();
                             System.out.println(tokenResponseModel.access_token);
                             Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
                             startActivity(intent);
                         }
                         else
                         {
-                            Toast.makeText(getApplicationContext(),tokenResponseModel.result,Toast.LENGTH_LONG).show();
+                          //  Toast.makeText(getApplicationContext(),tokenResponseModel.result,Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();
                     }
@@ -169,7 +182,9 @@ public class GetStarted extends AppCompatActivity {
                         }
                         else
                         {
-                            Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getApplicationContext(), LoyaltyLogin.class);
+                            startActivity(intent);
+                          //  Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();
 
@@ -179,5 +194,40 @@ public class GetStarted extends AppCompatActivity {
 
 
 
+    }
+
+    public void runBack()
+    {
+
+        Thread t=new Thread(){
+
+
+            @Override
+            public void run(){
+
+                while(!isInterrupted()){
+//1740*1000
+                    try {
+                        Thread.sleep(1740*1000);  //1000ms = 1 sec
+
+                        runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                 TokenGenerator tokenGenerator = new TokenGenerator();
+                                  tokenGenerator.getTokens(context);
+
+                            }
+                        });
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        };
+
+        t.start();
     }
 }

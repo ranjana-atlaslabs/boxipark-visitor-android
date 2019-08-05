@@ -32,15 +32,10 @@ TextView jTempView,jWeatherTextW,jWeatherDescription;
         jTempView= findViewById(R.id.aTempViewW);
         jWeatherTextW= findViewById(R.id.aWeatherTextW);
         jWeatherDescription= findViewById(R.id.aWeatherDescription);
-
-        ScreenSize s=new ScreenSize();
-        jTempView.setTextSize(s.size(this)*2);
-        jWeatherTextW.setTextSize((float) (s.size(this)*0.8));
-        jWeatherDescription.setTextSize((float) (s.size(this)*0.6));
         jWeatherList= findViewById(R.id.aWeatherList);
+
         populateUsersList();
         setListViewHeightBasedOnChildren(jWeatherList);
-
         ImageView jBack= findViewById(R.id.aMenuBackW);
         jBack.setOnClickListener(
                 new View.OnClickListener() {
@@ -52,7 +47,13 @@ TextView jTempView,jWeatherTextW,jWeatherDescription;
                 }
         );
     }
-
+    public void style()
+    {
+        ScreenSize s=new ScreenSize();
+        jTempView.setTextSize(s.size(this)*2);
+        jWeatherTextW.setTextSize((float) (s.size(this)*0.8));
+        jWeatherDescription.setTextSize((float) (s.size(this)*0.6));
+    }
     private void populateUsersList() {
         // Construct the data source
         ArrayList<WeatherList> arrayOfUsers = WeatherList.getFoodOffer();

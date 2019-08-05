@@ -35,6 +35,7 @@ import java.util.ArrayList;
 
 public class ProductMenu extends AppCompatActivity implements ProductBottomSheet.BottomSheetListener {
     ArrayList<MenuProducts> arrayOfMenuProducts;
+    LinearLayout jMenuImage;
 CardView restCard;
 ImageView jRestImage;
 LinearLayout jScrollMenu;
@@ -62,15 +63,11 @@ LinearLayout jScrollMenu;
 
 
 
-        LinearLayout jMenuImage= findViewById(R.id.aMenuImage);
+        jMenuImage= findViewById(R.id.aMenuImage);
         jScrollMenu=findViewById(R.id.aScrollMenuProduct);
         String id= getIntent().getStringExtra("id");
         rootObj=getIntent().getSerializableExtra("jsonArr");
 
-        System.out.println("$$$$$$$$$$$$$$$$$$");
-        System.out.println(id);
-
-       // API();
         if(id.equals("0"))
         {
             ID=8;
@@ -115,24 +112,9 @@ LinearLayout jScrollMenu;
         {
             ID=8;
         }
+
         displayData((RootObject) rootObj);
-      //  API();
-        ScreenSize s=new ScreenSize();
-        int size=(int)s.size(this)*20;
-
-
-
-        ScreenSize ratio=new ScreenSize();
-        float ration=ratio.ratio(this);
-        if(ration>=1.3&&ration<=1.5)
-        {
-            jMenuImage.getLayoutParams().height= (int) s.size(this)*25;
-
-        }
-        else
-        {
-            jMenuImage.getLayoutParams().height=size;
-        }
+        style();
 
 
 
@@ -145,21 +127,22 @@ LinearLayout jScrollMenu;
 
 
     }
+    public void style()
+    {
+        ScreenSize s=new ScreenSize();
+        int size=(int)s.size(this)*20;
+        ScreenSize ratio=new ScreenSize();
+        float ration=ratio.ratio(this);
+        if(ration>=1.3&&ration<=1.5)
+        {
+            jMenuImage.getLayoutParams().height= (int) s.size(this)*25;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
+        else
+        {
+            jMenuImage.getLayoutParams().height=size;
+        }
+    }
     public void setClickListners(ListView l, final ArrayList<MenuProducts> newMenu)
     {
 
@@ -176,7 +159,6 @@ LinearLayout jScrollMenu;
     }
     public void bottomSheet(View v, String desc,String price,String name)
     {
-        TextView tv = v.findViewById(R.id.txtview);
         ProductBottomSheet bottomSheet = new ProductBottomSheet();
         Bundle data = new Bundle();//create bundle instance
 
@@ -184,12 +166,10 @@ LinearLayout jScrollMenu;
         data.putString("name",name);//put string to pass with a key value1
         data.putString("price","$ "+price);//put string to pass with a key value1
 
-
         bottomSheet.setArguments(data);//Set bundle data to fragment
         bottomSheet.show(getSupportFragmentManager(), "exampleBottomSheet");
     }
-   // int[] images={R.drawable.restbarnona,R.drawable.restcanoni,R.drawable.restlaca,R.drawable.restfowl,R.drawable.resthops,R.drawable.restgrill,R.drawable.restclaw,R.drawable.restnaughty,R.drawable.restbarxi,R.drawable.restmelts};
-   // int[] colors={Color.rgb(243,239,228),Color.rgb(197,99,62),Color.rgb(246,213,142),Color.rgb(194,60,49),Color.rgb(63,80,98),Color.rgb(213,204,195),Color.rgb(0,0,0),Color.rgb(104,163,131),Color.rgb(34,30,31),Color.rgb(29,90,108)};
+
     public void setImages(int id)
     {
         int[] images={R.drawable.restbarnona,R.drawable.restcanoni,R.drawable.restlaca,R.drawable.restfowl,R.drawable.resthops,R.drawable.restgrill,R.drawable.restclaw,R.drawable.restnaughty,R.drawable.restbarxi,R.drawable.restmelts};
@@ -203,21 +183,10 @@ LinearLayout jScrollMenu;
 
         }
         jRestImage.setImageResource(images[id]);
-
-
-
-
-
-
-
-
-
     }
-
 
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
-        System.out.println("########################################");
         if (listAdapter == null) {
             // pre-condition
             return;
@@ -290,14 +259,15 @@ LinearLayout jScrollMenu;
                     @Override
                     public void onError(Throwable e) {
 
-                       addErrorText(jScrollMenu,"No Data Available.");
+                       addErrorText(jScrollMenu,"No DataWithCard Available.");
                         progressDialog.dismiss();
                     }
                 });
 
     }
 
-    private void displayData(RootObject rootObjects) {
+    private void displayData(RootObject rootObjects)
+    {
 
         System.out.println("################################3");
         System.out.println(ID);
@@ -331,12 +301,6 @@ LinearLayout jScrollMenu;
                     m.setHometown(numberAsString);
 
                 }
-
-
-
-
-
-
                 m.setName(rootObjects.data.menus.get(ID).sections.get(i).items.get(ii).name);
 
                 m.setDesc(rootObjects.data.menus.get(ID).sections.get(i).items.get(ii).description);
@@ -349,17 +313,10 @@ LinearLayout jScrollMenu;
             addLists(jScrollMenu,newMenu);
            addSpace(jScrollMenu,60);
         }
-
-
-
-
     }
 
     public void addLists(LinearLayout scrollView,ArrayList<MenuProducts>newMenu)
     {
-
-
-
         ListView l=new ListView(this);
         // Construct the data source
         ArrayList<MenuProducts> array=newMenu;
@@ -424,7 +381,6 @@ LinearLayout jScrollMenu;
         textSub.setTextColor(Color.parseColor("#49505D"));
 
     }
-
 
     public void addErrorText(LinearLayout scrollView,String Text)
     {

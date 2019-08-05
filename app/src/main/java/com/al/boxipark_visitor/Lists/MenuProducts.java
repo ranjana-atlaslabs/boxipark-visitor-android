@@ -10,7 +10,7 @@ public class MenuProducts {
     private String desc;
 
 
-    //retrieve user's name
+    //retrieve user'screenSize name
     public String getName(){
         return name;
     }

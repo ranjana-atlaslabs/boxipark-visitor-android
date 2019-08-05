@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="150dp"
+              android:background="#0000574B"
+              android:layout_gravity="center" android:weightSum="3">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_weight="1.2" android:weightSum="3">
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_weight="1.4"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:layout_weight="0.2" android:weightSum="3"
+                android:background="@drawable/popup_back" android:paddingLeft="20dp" android:paddingRight="20dp">
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/aPopupBody" android:layout_weight="0.52"
+                    android:gravity="center" android:padding="10dp" android:paddingLeft="20dp"
+                    android:paddingRight="20dp"/>
+            <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#80F3F2F2"
+                    android:layout_weight="1.48"/>
+            <Button
+                    android:text="Try Again"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/aPopupBtn" android:layout_weight="1"
+                    android:background="@drawable/popup_back" android:textColor="#EC7C69" android:textAllCaps="false"
+                    style="0"/>
+        </LinearLayout>
+        <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_weight="1.4"/>
+    </LinearLayout>
+</LinearLayout>

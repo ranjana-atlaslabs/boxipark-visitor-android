@@ -52,7 +52,7 @@
                 android:layout_height="match_parent" android:id="@+id/aEmail" android:layout_weight="1.02"
                 android:paddingLeft="0dp" app:autoSizeTextType="none" android:textColor="#050505"
                 android:paddingRight="0dp"
-                android:gravity="bottom"/>
+                android:gravity="bottom" android:enabled="false"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -62,7 +62,7 @@
                 android:id="@+id/aEmailText" android:layout_weight="1" android:paddingLeft="0dp"
                 android:paddingTop="0dp" android:paddingRight="0dp" android:paddingBottom="10dp"
                 android:textColorLink="#363636" android:textColorHighlight="#34474646"
-                android:text="someone@email.com"/>
+                android:text="someone@email.com" android:enabled="false"/>
         <TextView
                 android:text="Phone Number"
                 android:layout_width="match_parent"
@@ -73,26 +73,24 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:ems="10"
                 app:backgroundTint="#050505"
                 android:id="@+id/aPhoneText" android:layout_weight="1" android:paddingLeft="0dp"
                 android:paddingTop="0dp" android:paddingRight="0dp" android:paddingBottom="10dp"
                 android:textColorLink="#363636" android:textColorHighlight="#34474646" android:text="+12345678901"/>
         <TextView
-                android:text="Reset password"
+                android:text="Reset password 🖉"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:id="@+id/aReset" android:layout_weight="0.95"
                 android:paddingLeft="0dp" app:autoSizeTextType="none"
                 android:paddingTop="0dp" android:paddingRight="0dp" android:gravity="center_vertical"
-                android:textColor="#CECECE"/>
-        <TextView
-                android:text="Current password"
+                android:textColor="#7EA8B6"/>
+        <Button
+                android:text="Send email"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:id="@+id/aCurrentP" android:layout_weight="1.02"
-                android:paddingLeft="0dp" app:autoSizeTextType="none" android:textColor="#050505"
-                android:paddingTop="0dp" android:paddingRight="0dp" android:paddingBottom="0dp"
-                android:gravity="bottom"/>
+                android:layout_height="match_parent" android:id="@+id/aCurrentP" android:layout_weight="1"
+                android:background="@drawable/offer_button" android:textAllCaps="false" android:textColor="#F8F4F4"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -101,14 +99,15 @@
                 app:backgroundTint="#050505"
                 android:id="@+id/aCurrentPText" android:layout_weight="1" android:paddingLeft="0dp"
                 android:paddingTop="0dp" android:paddingRight="0dp" android:paddingBottom="0dp"
-                android:textColorLink="#363636" android:textColorHighlight="#34474646" android:text="123456789"/>
+                android:textColorLink="#363636" android:textColorHighlight="#34474646" android:text="123456789"
+                android:visibility="invisible"/>
         <TextView
                 android:text="New password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:id="@+id/aNewP" android:layout_weight="1.02"
                 android:paddingLeft="0dp" app:autoSizeTextType="none" android:textColor="#050505"
                 android:paddingTop="0dp" android:paddingRight="0dp" android:paddingBottom="0dp"
-                android:gravity="bottom"/>
+                android:gravity="bottom" android:visibility="invisible"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -117,14 +116,15 @@
                 app:backgroundTint="#050505"
                 android:id="@+id/aNewPText" android:layout_weight="1" android:paddingLeft="0dp"
                 android:paddingTop="0dp" android:paddingRight="0dp" android:paddingBottom="0dp"
-                android:textColorLink="#363636" android:textColorHighlight="#34474646" android:text="123456789"/>
+                android:textColorLink="#363636" android:textColorHighlight="#34474646" android:text="123456789"
+                android:visibility="invisible"/>
         <TextView
                 android:text="Confirm password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:id="@+id/aConfirmP" android:layout_weight="1.02"
                 android:paddingLeft="0dp" app:autoSizeTextType="none" android:textColor="#050505"
                 android:paddingTop="0dp" android:paddingRight="0dp" android:paddingBottom="0dp"
-                android:gravity="bottom"/>
+                android:gravity="bottom" android:visibility="invisible"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -133,10 +133,11 @@
                 app:backgroundTint="#050505"
                 android:id="@+id/aConfirmPText" android:layout_weight="1" android:paddingLeft="0dp"
                 android:paddingTop="0dp" android:paddingRight="0dp" android:paddingBottom="0dp"
-                android:textColorLink="#363636" android:textColorHighlight="#34474646" android:text="123456789"/>
+                android:textColorLink="#363636" android:textColorHighlight="#34474646" android:text="123456789"
+                android:visibility="invisible"/>
         <Space
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:layout_weight="1.01"/>
+                android:layout_height="match_parent" android:layout_weight="1.05"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"

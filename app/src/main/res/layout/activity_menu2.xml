@@ -30,7 +30,7 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:weightSum="10" android:layout_weight="0.9">
+                    android:layout_height="match_parent" android:weightSum="10" android:layout_weight="0.83">
                 <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" app:srcCompat="@drawable/user"
@@ -46,7 +46,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" android:layout_weight="7.5"/>
                     <TextView
-                            android:text="John Doe"
+                            android:text="- -"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" android:id="@+id/aUserName" android:layout_weight="1"
                             app:autoSizeTextType="none" android:textSize="18sp" android:gravity="bottom"
@@ -63,11 +63,11 @@
             </LinearLayout>
             <Space
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_weight="1.1"/>
+                    android:layout_height="match_parent" android:layout_weight="1"/>
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_weight="1" android:paddingLeft="20dp"
+                    android:layout_height="match_parent" android:layout_weight="0.9" android:paddingLeft="20dp"
                     android:weightSum="5" android:showDividers="end"
                     android:divider="?attr/dividerHorizontal" android:paddingRight="20dp">
                 <TextView
@@ -81,12 +81,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:id="@+id/aCardNumHolder"
                         app:autoSizeTextType="none" android:layout_weight="1" android:textSize="14sp"
-                        android:gravity="center_vertical" android:paddingTop="5dp" android:textColor="#BEBEBE"/>
+                        android:gravity="center_vertical" android:paddingTop="5dp" android:textColor="#BEBEBE"
+                        tools:text="--"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_weight="1" android:paddingLeft="20dp"
+                    android:layout_height="match_parent" android:layout_weight="0.9" android:paddingLeft="20dp"
                     android:weightSum="5" android:divider="?attr/dividerHorizontal"
                     android:showDividers="end" android:paddingRight="20dp">
                 <TextView
@@ -96,7 +97,7 @@
                         android:textColor="#565656" android:textStyle="bold" app:autoSizeTextType="none"
                         android:layout_weight="1" android:textSize="14sp" android:gravity="bottom"/>
                 <TextView
-                        android:text="14622654124"
+                        android:text="--"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:id="@+id/aRegNumberHolder"
                         app:autoSizeTextType="none" android:layout_weight="1" android:gravity="center_vertical"
@@ -105,7 +106,7 @@
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_weight="1" android:paddingLeft="20dp"
+                    android:layout_height="match_parent" android:layout_weight="0.9" android:paddingLeft="20dp"
                     android:weightSum="5" android:showDividers="end"
                     android:divider="?attr/dividerHorizontal" android:paddingRight="20dp">
                 <TextView
@@ -121,31 +122,70 @@
                         app:autoSizeTextType="none" android:layout_weight="1" android:gravity="center_vertical"
                         android:paddingTop="5dp" android:textColor="#BEBEBE"/>
             </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="0.85" android:paddingLeft="20dp"
+                    android:weightSum="5" android:showDividers="none"
+                    android:divider="?attr/dividerHorizontal" android:paddingRight="20dp"
+            >
+                <TextView
+                        android:text="Loyalty Points"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:id="@+id/aLoyaltyPoints"
+                        android:textColor="#565656" android:textStyle="bold" app:autoSizeTextType="none"
+                        android:layout_weight="1" android:gravity="bottom"/>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_weight="1" android:paddingTop="5dp">
+                    <TextView
+                            android:text="--"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:id="@+id/aLoyaltyPointsHolder"
+                            app:autoSizeTextType="none" android:layout_weight="0.5" android:gravity="center_vertical"
+                            android:textColor="#EA6951" android:textSize="14sp"/>
+                    <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:layout_weight="1"/>
+                    <Button
+                            android:text="History"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:id="@+id/aHistory" android:layout_weight="0.8"
+                            android:layout_gravity="center_vertical" android:minHeight="0dp"
+                            android:textAllCaps="false" android:background="@drawable/history_button"
+                            android:paddingTop="5dp" android:paddingBottom="5dp" android:textColor="#FFFEFE"/>
+                    <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:layout_weight="1.15"/>
+                </LinearLayout>
+            </LinearLayout>
             <Space
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_weight="1.1"/>
+                    android:layout_height="match_parent" android:layout_weight="0.98"/>
             <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" app:srcCompat="@drawable/clawlogon"
-                    android:id="@+id/aQrImage" android:layout_weight="0.8" android:adjustViewBounds="false"/>
+                    android:layout_height="match_parent"
+                    android:id="@+id/aQrImage" android:layout_weight="0.75" android:adjustViewBounds="false"/>
             <Space
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_weight="1.1"/>
+                    android:layout_height="match_parent" android:layout_weight="0.98"/>
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:layout_weight="1.07">
+                    android:layout_height="match_parent" android:layout_weight="0.94">
                 <Space
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" android:layout_weight="1.9"/>
+                        android:layout_height="match_parent" android:layout_weight="1.95"/>
                 <Button
                         android:text="Log out"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" android:id="@+id/aLogout" android:layout_weight="0.4"
-                        android:background="@drawable/button" android:textColor="#FFFFFF" android:textAllCaps="false"/>
+                        android:layout_height="match_parent" android:id="@+id/aLogout" android:layout_weight="0.3"
+                        android:background="@drawable/offer_button" android:textColor="#FFFFFF"
+                        android:textAllCaps="false"/>
                 <Space
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" android:layout_weight="1.9"/>
+                        android:layout_height="match_parent" android:layout_weight="1.95"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.design.widget.NavigationView>

@@ -47,7 +47,7 @@ public class CustomProductAdapter extends ArrayAdapter<MenuProducts> implements 
 
         FontsSet f=new FontsSet();
         // Lookup view for data population
-       tvName = convertView.findViewById(R.id.txtview);
+        tvName = convertView.findViewById(R.id.txtview);
         TextView tvPrice = convertView.findViewById(R.id.aPrice);
         TextView jDollar= convertView.findViewById(R.id.aDollar);
 
@@ -78,28 +78,6 @@ public class CustomProductAdapter extends ArrayAdapter<MenuProducts> implements 
 
         tvName.setText(spanned);
 
-      /*  String text2 = menuProducts.getName() + " ℹ";
-              //  String text2 = menuProducts.getName() +  Html.fromHtml("<img src=\"http://cdn.onlinewebfonts.com/svg/img_515098.png\">");
-        Spannable spannable = new SpannableString(text2);
-
-        spannable.setSpan(new ForegroundColorSpan(Color.BLACK), menuProducts.getName().length(), (menuProducts.getName() + "ⓘ").length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        tvName.setText(spannable, TextView.BufferType.SPANNABLE);
-
-        //tvName.setText(menuProducts.getName() );*/
-
-
-
-
-
-
-        /*SpannableStringBuilder ssb = new SpannableStringBuilder( );
-        Bitmap smiley = BitmapFactory.decodeResource( convertView.getResources(), R.drawable.right_draw );
-        ssb.setSpan( new ImageSpan( smiley ), ssb.length()-1,  ssb.length(), Spannable.SPAN_INCLUSIVE_INCLUSIVE );
-        tvName.setText( ssb, TextView.BufferType.SPANNABLE );*/
-       //tvName.setCompoundDrawablesWithIntrinsicBounds(R.drawable.infob, 0, 0, 0);
-
-        // Return the completed view to render on screen
         return convertView;
     }
 
@@ -120,10 +98,6 @@ public class CustomProductAdapter extends ArrayAdapter<MenuProducts> implements 
             d.addLevel(0, 0, empty);
             d.setBounds(0, 0, empty.getIntrinsicWidth(), empty.getIntrinsicHeight()+5);
         }
-
-
-
-
 
         return d;
     }

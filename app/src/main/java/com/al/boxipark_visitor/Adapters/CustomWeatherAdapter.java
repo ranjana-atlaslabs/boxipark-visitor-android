@@ -44,7 +44,7 @@ public class CustomWeatherAdapter extends ArrayAdapter<WeatherList> {
 
         // Lookup view for data population
         TextView jday = convertView.findViewById(R.id.aDay);
-ImageView jTypeView= convertView.findViewById(R.id.aTypeView);
+        ImageView jTypeView= convertView.findViewById(R.id.aTypeView);
         ImageView jFoodView= convertView.findViewById(R.id.aFoodView);
         jday.setTextSize(size);
        // TextView tvHome = (TextView) convertView.findViewById(R.id.aPrice);

@@ -2,27 +2,17 @@ package com.al.boxipark_visitor.Activity;
 
 import android.content.Intent;
 import android.graphics.Color;
-
 import android.graphics.drawable.ColorDrawable;
-
 import android.os.Build;
-import android.service.quicksettings.Tile;
 import android.support.annotation.RequiresApi;
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.view.View;
-
-
 import android.view.WindowManager;
 import android.widget.*;
 import android.widget.LinearLayout.LayoutParams;
 import com.al.boxipark_visitor.R;
-
 import java.util.Random;
-
-
 
 public class MainMenu extends AppCompatActivity {
     LinearLayout vScroll;

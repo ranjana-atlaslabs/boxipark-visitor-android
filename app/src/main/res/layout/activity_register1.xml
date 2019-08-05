@@ -53,7 +53,8 @@
                     android:ems="10"
                     android:id="@+id/aUserNameSign" android:layout_weight="1"
                     android:hint="Loyalty card number" android:textColorHint="#8B8380" android:paddingLeft="20dp"
-                    android:textSize="14sp" android:paddingBottom="5dp" android:paddingTop="5dp"/>
+                    android:textSize="14sp" android:paddingBottom="5dp" android:paddingTop="5dp"
+                    android:textColor="#FDFCFC"/>
             <Space
                     android:layout_width="100dp"
                     android:layout_height="match_parent" android:layout_weight="1"/>
@@ -107,18 +108,20 @@
                     android:ems="10"
                     android:layout_weight="1" android:hint="Registration number"
                     android:textColorHint="#8B8380" android:paddingLeft="20dp" android:textSize="14sp"
-                    android:paddingBottom="5dp" android:paddingTop="5dp" android:id="@+id/aRegistrationNo"/>
+                    android:paddingBottom="5dp" android:paddingTop="5dp" android:id="@+id/aRegistrationNo"
+                    android:textColor="#FDFCFC"/>
             <Space
                     android:layout_width="100dp"
                     android:layout_height="match_parent" android:layout_weight="1"/>
         </LinearLayout>
         <Space
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:layout_weight="1.075"/>
+                android:layout_height="match_parent" android:layout_weight="2"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:layout_weight="1.035" android:weightSum="3">
+                android:layout_height="match_parent" android:layout_weight="1.05" android:weightSum="3"
+                android:visibility="invisible">
             <Space
                     android:layout_width="100dp"
                     android:layout_height="match_parent" android:layout_weight="1"/>
@@ -137,7 +140,7 @@
         </LinearLayout>
         <Space
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" android:layout_weight="1.05"/>
+                android:layout_height="match_parent" android:layout_weight="2"/>
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -151,7 +154,7 @@
                     android:layout_height="match_parent"
                     android:textColor="#ffffff"
                     android:background="@drawable/button"
-                    android:text="Sign up" android:layout_weight="1" android:textSize="14sp" android:minHeight="0dp"
+                    android:text="Next" android:layout_weight="1" android:textSize="14sp" android:minHeight="0dp"
                     android:minWidth="0dp" android:textAllCaps="false"/>
             <Space
                     android:layout_weight="1" android:layout_width="100dp" android:layout_height="match_parent"/>

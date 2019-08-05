@@ -14,26 +14,46 @@ import com.al.boxipark_visitor.R;
 import com.al.boxipark_visitor.Other.ScreenSize;
 
 public class WeatherModified extends AppCompatActivity {
+    TextView jType, jTemp, jDesc, jTue, jWed, jThu, jFri, jSat, jSun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_modified);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+    casting();
+    style();
+    ImageView jBack= findViewById(R.id.aMBack);
+    jBack.setOnClickListener(
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                    startActivity(intent);
+                }
+            }
+    );
+    }
+    public void casting()
+    {
+        jType= findViewById(R.id.aMWeatherType);
+        jTemp= findViewById(R.id.aMWeatherTemp);
+        jDesc= findViewById(R.id.aMWeatherDescription);
+        jTue= findViewById(R.id.aTue);
+        jWed= findViewById(R.id.aWed);
+        jThu= findViewById(R.id.aThu);
+        jFri= findViewById(R.id.aFri);
+        jSat= findViewById(R.id.aSat);
+        jSun= findViewById(R.id.aSun);
+    }
+    public void style()
+    {
+
         FontsSet f=new FontsSet();
         Typeface m=f.Book(this);
         ScreenSize s=new ScreenSize();
         float size=s.size(this);
-
-        TextView jType= findViewById(R.id.aMWeatherType);
-        TextView jTemp= findViewById(R.id.aMWeatherTemp);
-        TextView jDesc= findViewById(R.id.aMWeatherDescription);
-        TextView jTue= findViewById(R.id.aTue);
-        TextView jWed= findViewById(R.id.aWed);
-        TextView jThu= findViewById(R.id.aThu);
-        TextView jFri= findViewById(R.id.aFri);
-        TextView jSat= findViewById(R.id.aSat);
-        TextView jSun= findViewById(R.id.aSun);
 
         jTemp.setTypeface(m);
         jDesc.setTypeface(m);
@@ -56,37 +76,5 @@ public class WeatherModified extends AppCompatActivity {
         jFri.setTextSize((float) (size*0.8));
         jSat.setTextSize((float) (size*0.8));
         jSun.setTextSize((float) (size*0.8));
-
-    ImageView jBack= findViewById(R.id.aMBack);
-    jBack.setOnClickListener(
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-                    startActivity(intent);
-                }
-            }
-    );
     }
-
-   /* public void addTiles()
-    {
-        LinearLayout jWeatherParent=(LinearLayout)findViewById(R.id.aWeatherMainLayout);
-
-        LinearLayout item=new LinearLayout(this);
-        item.setOrientation(LinearLayout.HORIZONTAL);
-        item.setPadding(0,0,0,1);
-        item.setBackgroundColor(0x6494B1);
-        item.setWeightSum(3);
-        jWeatherParent.addView(item);
-
-        TextView text=new TextView(this);
-        text.setText("text");
-        text.setGravity(Gravity.CENTER_VERTICAL);
-        text.setBackgroundColor(0x87C8EE);
-        item.addView(text);
-
-        ImageView i=new ImageView(this);
-
-    }*/
 }

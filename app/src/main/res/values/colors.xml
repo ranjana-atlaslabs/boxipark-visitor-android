@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#EA6951</color>
     <color name="colorTransparent">#43000000</color>
+    <color name="colorRedeem">#EA6851</color>
+    <color name="colorReward">#79A5B3</color>
 </resources>

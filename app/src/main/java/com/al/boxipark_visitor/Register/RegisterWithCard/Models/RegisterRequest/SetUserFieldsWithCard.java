@@ -2,7 +2,7 @@ package com.al.boxipark_visitor.Register.RegisterWithCard.Models.RegisterRequest
 
 import java.io.Serializable;
 
-public class SetUserFields implements Serializable{
+public class SetUserFieldsWithCard implements Serializable{
     public String style="strings";
     public String username;
     public String password;

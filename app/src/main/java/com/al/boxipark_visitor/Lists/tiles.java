@@ -12,7 +12,7 @@ public class tiles {
         this.hometown = hometown;
     }
 
-    //retrieve user's name
+    //retrieve user'screenSize name
     public String getName(){
         return name;
     }

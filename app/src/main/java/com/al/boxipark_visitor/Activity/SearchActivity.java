@@ -14,6 +14,9 @@ import com.al.boxipark_visitor.Other.ScreenSize;
 
 public class SearchActivity extends AppCompatActivity {
 
+    EditText jSearchBar;
+    TextView jBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,11 +24,8 @@ public class SearchActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.overridePendingTransition(R.anim.enter,
                 R.anim.exit);
-        FontsSet f=new FontsSet();
-
-        EditText jSearchBar= findViewById(R.id.aSearchBar);
-        jSearchBar.setTypeface(f.Book(this));
-        TextView jBack= findViewById(R.id.aNavBack);
+        jSearchBar= findViewById(R.id.aSearchBar);
+        jBack= findViewById(R.id.aNavBack);
         jBack.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -35,6 +35,13 @@ public class SearchActivity extends AppCompatActivity {
                     }
                 }
         );
+
+    }
+
+    public void style()
+    {
+        FontsSet f=new FontsSet();
+        jSearchBar.setTypeface(f.Book(this));
         ScreenSize s=new ScreenSize();
         jSearchBar.setTextSize((float) (s.size(this)*0.8));
     }

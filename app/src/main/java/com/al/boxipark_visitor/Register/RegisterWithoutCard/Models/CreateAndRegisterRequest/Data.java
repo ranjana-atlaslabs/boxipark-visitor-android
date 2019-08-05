@@ -12,8 +12,7 @@ public class Data implements Serializable {
     public int merchantId = Constants.MERCHANT_ID;
     public int cardTemplateCode = Constants.CARD_TEMPLATE;
     public String printedCardNumber;
-    public String access_token;
-    public String activationStoreCode = Constants.STORE;
+    public String registrationCode;
     ArrayList< String > enforceUniqueFields = new ArrayList < String > (){{
         add("username");
         add("email");

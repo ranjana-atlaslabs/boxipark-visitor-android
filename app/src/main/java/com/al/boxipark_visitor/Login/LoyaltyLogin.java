@@ -1,12 +1,14 @@
 package com.al.boxipark_visitor.Login;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
@@ -26,6 +28,7 @@ import com.al.boxipark_visitor.Other.FontsSet;
 import com.al.boxipark_visitor.Other.ScreenSize;
 import com.al.boxipark_visitor.Login.LoginModels.TokenModelRequest.TokenModelRequest;
 import com.al.boxipark_visitor.Login.LoginModels.TokenModelResponse.TokenResponseModel;
+import com.al.boxipark_visitor.ResetPassword.ResetPasswordActivity;
 import com.al.boxipark_visitor.Retrofit.RetrofitClientInstances.Paytronix;
 import com.al.boxipark_visitor.Retrofit.RetrofitInterfaces.PaytronixIInterfaces.RequestTokens;
 import com.al.boxipark_visitor.VolleyRequests.Weather;
@@ -50,29 +53,83 @@ public class LoyaltyLogin extends AppCompatActivity {
     TextView jSignupText;
     Button login;
 
+    Dialog myDialog;
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loyalty_login);
-        final ImageView imageViewBackground= findViewById(R.id.aLoginBack);
+
+        //Blur view for login
+        final ImageView imageViewBackground = findViewById(R.id.aLoginBack);
         Bitmap icon = BitmapFactory.decodeResource(this.getResources(),
                 R.drawable.backgrn);
-        Bitmap blurredBitmap = BlurBuilder.blur( this, icon );
+        Bitmap blurredBitmap = BlurBuilder.blur(this, icon);
+        imageViewBackground.setBackgroundDrawable(new BitmapDrawable(getResources(), blurredBitmap));
 
-        imageViewBackground.setBackgroundDrawable( new BitmapDrawable( getResources(), blurredBitmap ) );
-       textStyle();
+        myDialog = new Dialog(this);
+        //Full screen window
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-       // Weather w=new Weather();
-      //  final String weather=w.getWeather(this);
+        // Weather w=new Weather();
+        //  final String weather=w.getWeather(this);
+        textStyle();
         loginClick();
         signupClick();
+
+        jForgotpass.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), ResetPasswordActivity.class);
+                        intent.putExtra("from", 1);
+                        startActivity(intent);
+                    }
+                }
+        );
         //createProgressDialog(this);
     }
 
-    public static ProgressDialog createProgressDialog(Context context)
-    {
+    public void ShowPopup(String body, final String btnBody) {
+
+        myDialog.setContentView(R.layout.popup_alert);
+        TextView jPopText = myDialog.findViewById(R.id.aPopupBody);
+        Button jPopBtn = myDialog.findViewById(R.id.aPopupBtn);
+
+        jPopBtn.setText(btnBody);
+
+        FontsSet f = new FontsSet();
+        Typeface t = f.Book(this);
+        jPopText.setTypeface(t);
+        jPopBtn.setTypeface(t);
+
+
+        //screen resizing
+        ScreenSize s = new ScreenSize();
+        float size = s.size(this);
+        jPopText.setTextSize((float) (size * 0.75));
+        jPopBtn.setTextSize((float) (size * 0.75));
+
+
+        jPopText.setText(body);
+        jPopBtn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (btnBody.equals("Close")) {
+                            Intent intent = new Intent(getApplicationContext(), LoyaltyLogin.class);
+                            startActivity(intent);
+                        }
+                        myDialog.dismiss();
+                    }
+                }
+        );
+        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialog.show();
+    }
+
+    public static ProgressDialog createProgressDialog(Context context) {
         ProgressDialog dialog = new ProgressDialog(context);
         try {
             dialog.show();
@@ -87,8 +144,7 @@ public class LoyaltyLogin extends AppCompatActivity {
         return dialog;
     }
 
-    public void signupClick()
-    {
+    public void signupClick() {
         jSignUp1.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -98,8 +154,8 @@ public class LoyaltyLogin extends AppCompatActivity {
                 }
         );
     }
-    public void loginClick()
-    {
+
+    public void loginClick() {
 
 
         login.setOnClickListener(
@@ -107,23 +163,23 @@ public class LoyaltyLogin extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
-                           runAPI();
+                        runAPI();
 
                     }
                 }
         );
     }
-    public void textStyle()
-    {
-        FontsSet f=new FontsSet();
-        Typeface t=f.Book(this);
+
+    public void textStyle() {
+        FontsSet f = new FontsSet();
+        Typeface t = f.Book(this);
         //casting
-        jUsername= findViewById(R.id.aUserName);
-        jPassword= findViewById(R.id.aPassword);
-        jSignUp1= findViewById(R.id.aSignUp1);
-        jForgotpass= findViewById(R.id.aforgotPass);
-        jSignupText= findViewById(R.id.aSignupText);
-        login= findViewById(R.id.aLogin);
+        jUsername = findViewById(R.id.aUserName);
+        jPassword = findViewById(R.id.aPassword);
+        jSignUp1 = findViewById(R.id.aSignUp1);
+        jForgotpass = findViewById(R.id.aforgotPass);
+        jSignupText = findViewById(R.id.aSignupText);
+        login = findViewById(R.id.aLogin);
 
         login.setTypeface(t);
         jPassword.setTypeface(t);
@@ -133,32 +189,30 @@ public class LoyaltyLogin extends AppCompatActivity {
         login.setTypeface(t);
 
 
-
         //screen resizing
-        ScreenSize s=new ScreenSize();
-        float size=s.size(this);
-        jUsername.setTextSize((float) (size*0.6));
-        jPassword.setTextSize((float) (size*0.6));
-        login.setTextSize((float) (size*0.75));
-        jForgotpass.setTextSize((float) (size*0.6));
-        jSignupText.setTextSize((float) (size*0.6));
-        jForgotpass.setTextSize((float) (size*0.6));
-        jSignUp1.setTextSize((float) (size*0.6));
+        ScreenSize s = new ScreenSize();
+        float size = s.size(this);
+        jUsername.setTextSize((float) (size * 0.6));
+        jPassword.setTextSize((float) (size * 0.6));
+        login.setTextSize((float) (size * 0.75));
+        jForgotpass.setTextSize((float) (size * 0.6));
+        jSignupText.setTextSize((float) (size * 0.6));
+        jForgotpass.setTextSize((float) (size * 0.6));
+        jSignUp1.setTextSize((float) (size * 0.6));
     }
-    public void next()
-    {
+
+    public void next() {
 
         Intent intent = new Intent(this, MenuActivity.class);
-        startActivity ( intent );
-    }
-    public void signup1()
-    {
-        Intent intent = new Intent(this, RegisterWithCard.class);
-        startActivity ( intent );
+        startActivity(intent);
     }
 
-    public void storeTokens(String refresh_token,String current_token,String username,String password)
-    {
+    public void signup1() {
+        Intent intent = new Intent(this, RegisterWithCard.class);
+        startActivity(intent);
+    }
+
+    public void storeTokens(String refresh_token, String current_token, String username, String password) {
         SharedPreferences.Editor editor = getSharedPreferences("tokens", MODE_PRIVATE).edit();
         editor.putString("refresh_token", refresh_token);
         editor.putString("current_token", current_token);
@@ -167,17 +221,16 @@ public class LoyaltyLogin extends AppCompatActivity {
         editor.apply();
     }
 
-
-    public void runAPI()
-    {
-    try {
-        API(createProgressDialog(this));
-    } catch (JSONException e) {
-        e.printStackTrace();
+    public void runAPI() {
+        try {
+            API(createProgressDialog(this));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
-}
+
     public void API(final ProgressDialog progressDialog) throws JSONException {
-        TokenModelRequest data=new TokenModelRequest();
+        TokenModelRequest data = new TokenModelRequest();
 
 
         data.username = this.jUsername.getText().toString();
@@ -188,7 +241,7 @@ public class LoyaltyLogin extends AppCompatActivity {
         String json = gson.toJson(data);
         JsonObject jsonObject = new JsonParser().parse(json).getAsJsonObject();
 
-        Retrofit retro= Paytronix.getInstance();
+        Retrofit retro = Paytronix.getInstance();
         requestTokensApi = retro.create(RequestTokens.class);
 
         requestTokensApi.getPosts(jsonObject)
@@ -202,38 +255,37 @@ public class LoyaltyLogin extends AppCompatActivity {
 
                     @Override
                     public void onSuccess(TokenResponseModel tokenResponseModel) {
-                    if(!tokenResponseModel.result.equals("failed"))
-                    {
-                        Toast.makeText(getApplicationContext(),tokenResponseModel.access_token,Toast.LENGTH_LONG).show();
-                        System.out.println(tokenResponseModel.access_token);
-                        storeTokens(tokenResponseModel.refresh_token,tokenResponseModel.access_token,tokenResponseModel.username,jPassword.getText().toString());
-                        next();
-                    }
-                    else
-                    {
-                        Toast.makeText(getApplicationContext(),tokenResponseModel.result,Toast.LENGTH_LONG).show();
-                    }
+                        if (!tokenResponseModel.result.equals("failed")) {
+                            System.out.println(tokenResponseModel.access_token);
+                            storeTokens(tokenResponseModel.refresh_token, tokenResponseModel.access_token, tokenResponseModel.username, jPassword.getText().toString());
+                            next();
+                        } else {
+                            ShowPopup("Incorrect password or e-mail", "Try again");
+                        }
                         progressDialog.dismiss();
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        System.out.println("#########################");
-                        System.out.println(e.toString());
-                        if(e.getLocalizedMessage().equals("HTTP 521"))
-                        {
-                            Toast.makeText(getApplicationContext(),"Server Down",Toast.LENGTH_LONG).show();
+                        System.out.println("#########################@@@");
+                        System.out.println(e.getLocalizedMessage());
+                        if (e.getLocalizedMessage().trim().equals("HTTP 521")) {
+                            ShowPopup("Server down", "Try again");
+                        } else if (e.getLocalizedMessage().trim().equals("HTTP 401")) {
+                            ShowPopup("Incorrect password or e-mail", "Try again");
+                        } else if (e.getLocalizedMessage().trim().equals("HTTP 403")) {
+                            ShowPopup("Incorrect password or e-mail", "Try again");
                         }
-                        else
-                        {
-                            Toast.makeText(getApplicationContext(),e.getLocalizedMessage(),Toast.LENGTH_LONG).show();
+                        else if(e.getLocalizedMessage().trim().equals("HTTP 429"))
+                        {  ShowPopup("Server could not reached, too many requests", "Try again");}
+                             else {
+                            ShowPopup("Slow network detetcted", "Try again");
                         }
                         progressDialog.dismiss();
 
 
                     }
                 });
-
 
 
     }

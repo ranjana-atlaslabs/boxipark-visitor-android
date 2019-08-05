@@ -14,6 +14,9 @@ import com.al.boxipark_visitor.UserProfile.ProfileActivity;
 
 public class UploadPhoto extends AppCompatActivity {
     public  UserData user;
+    Button jUpload;
+    Button jDelete;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,14 +24,11 @@ public class UploadPhoto extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         this.overridePendingTransition(R.anim.bottom_top,
                 R.anim.top_bottm);
-
-        FontsSet f=new FontsSet();
         Intent intent = getIntent();
         user = (UserData) intent.getSerializableExtra("USER");
-        Button jUpload= findViewById(R.id.aUploadP);
-        Button jDelete= findViewById(R.id.aDeleteP);
-jUpload.setTypeface(f.Book(this));
-        jDelete.setTypeface(f.Book(this));
+        jUpload= findViewById(R.id.aUploadP);
+        jDelete= findViewById(R.id.aDeleteP);
+
         jUpload.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -40,6 +40,13 @@ jUpload.setTypeface(f.Book(this));
                 }
         );
 
+    }
+
+    public void style()
+    {
+        FontsSet f=new FontsSet();
+        jUpload.setTypeface(f.Book(this));
+        jDelete.setTypeface(f.Book(this));
         ScreenSize s=new ScreenSize();
         jUpload.setTextSize((float) (s.size(this)*0.8));
         jDelete.setTextSize((float) (s.size(this)*0.8));

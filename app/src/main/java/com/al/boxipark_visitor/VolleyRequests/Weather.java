@@ -21,8 +21,8 @@ public class Weather {
             @Override
             public void onResponse(String response) {
                 //This code is executed if the server responds, whether or not the response contains data.
-                //The String 'response' contains the server's response.
-                //You can test it by printing response.substring(0,500) to the screen.
+                //The String 'response' contains the server'screenSize response.
+                //You can initializeAPI it by printing response.substring(0,500) to the screen.
 
                 res[0] =response;
             }

@@ -23,14 +23,14 @@ import static android.content.Context.MODE_PRIVATE;
 public class TokenGenerator {
     RequestTokens requestTokensApi;
 
-    public void storeTokens(String refresh_token, String current_token, String username, String password, Context context)
+    public void storeTokens(String refresh_token, String current_token, String username, Context context)
     {
         SharedPreferences.Editor editor = context.getSharedPreferences("tokens", MODE_PRIVATE).edit();
 
         editor.putString("refresh_token", refresh_token);
         editor.putString("current_token", current_token);
         editor.putString("username", username);
-        editor.putString("password", password);
+
         editor.apply();
     }
 
@@ -39,15 +39,18 @@ public class TokenGenerator {
     SharedPreferences prefs = context.getSharedPreferences("tokens", MODE_PRIVATE);
     String restoredText = prefs.getString("text", null);
 
-        String username = prefs.getString("username", "");
+        String username = prefs.getString("username", "no data");
         String password = prefs.getString("password", "");
         String refresh_token = prefs.getString("refresh_token", "");
         String current_token = prefs.getString("current_token", "");
 
-    if(!username.equals(""))
+
+
+    if(!username.equals("no data"))
     {
         try {
-            API(username,password,context);
+            API(username,refresh_token,context);
+            System.out.println("new token");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -55,18 +58,19 @@ public class TokenGenerator {
     }
      else
          {
+             System.out.println("not generated");
             return 0;
         }
     }
 
-    public void API(String username, final String password, final Context context) throws JSONException
+    public void API(String username, final String refresh_toke, final Context context) throws JSONException
     {
         TokenModelRequest data=new TokenModelRequest();
 
 
         data.username = username;
-        data.password = password;
-        data.grant_type = "password";
+        data.refresh_token = refresh_toke;
+        data.grant_type = "refresh_token";
 
         Gson gson = new Gson();
         String json = gson.toJson(data);
@@ -88,8 +92,9 @@ public class TokenGenerator {
                     public void onSuccess(TokenResponseModel tokenResponseModel) {
                         if(!tokenResponseModel.result.equals("failed"))
                         {
-
-                            storeTokens(tokenResponseModel.refresh_token,tokenResponseModel.access_token,tokenResponseModel.username,password,context);
+                            System.out.println("&&&&&&&&&&&&&&&&&&&");
+                            System.out.println(tokenResponseModel.access_token);
+                            storeTokens(tokenResponseModel.refresh_token,tokenResponseModel.access_token,tokenResponseModel.username,context);
 
                         }
                         else
@@ -111,9 +116,6 @@ public class TokenGenerator {
                         {
 
                         }
-
-
-
                     }
                 });
     }

@@ -14,30 +14,23 @@ import com.al.boxipark_visitor.Other.ScreenSize;
 
 public class ProductBottomSheet extends BottomSheetDialogFragment {
     private BottomSheetListener mListener;
-
+    TextView jT1;
+    TextView jPr;
+    View view;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-       View v = inflater.inflate(R.layout.bottom_sheet_layout, container, false);
+       view = inflater.inflate(R.layout.bottom_sheet_layout, container, false);
         //initChargeLayoutViews();
 
-        ScreenSize s=new ScreenSize();
 
-        TextView jT1= v.findViewById(R.id.aMenuItem);
-        TextView jPr= v.findViewById(R.id.aPriceBottom);
-
-        jT1.setTextSize((s.size(v.getContext())*1));
-        jPr.setTextSize((s.size(v.getContext())*1));
-
-        FontsSet f=new FontsSet();
-        jT1.setTypeface(f.Bold(v.getContext()));
-        jPr.setTypeface(f.Bold(v.getContext()));
+        jT1= view.findViewById(R.id.aMenuItem);
+        jPr= view.findViewById(R.id.aPriceBottom);
 
         String getArgument = getArguments().getString("key_value");//Get pass data with its key value
         String getArgument1 = getArguments().getString("price");//Get pass data with its key value
         String name = getArguments().getString("name");//Get pass data with its key value
-       // Toast.makeText(getContext(),getArgument, Toast.LENGTH_SHORT).show();
 
         if(getArgument.equals(""))
         {
@@ -55,9 +48,20 @@ public class ProductBottomSheet extends BottomSheetDialogFragment {
         }
 
 
-        return v;
+        return view;
     }
 
+    public void style()
+    {
+        ScreenSize s=new ScreenSize();
+        jT1.setTextSize((s.size(view.getContext())*1));
+        jPr.setTextSize((s.size(view.getContext())*1));
+
+        FontsSet f=new FontsSet();
+        jT1.setTypeface(f.Bold(view.getContext()));
+        jPr.setTypeface(f.Bold(view.getContext()));
+
+    }
     public interface BottomSheetListener {
         void onButtonClicked(String text);
     }
